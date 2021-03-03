@@ -118,3 +118,5 @@ fpath=(${ASDF_DIR}/completions $fpath)
 autoload -Uz compinit
 compinit
 
+fpath+=${ZDOTDIR:-~}/.zsh_functions
+
