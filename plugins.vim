@@ -30,8 +30,10 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Airline
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
-   
+    " Startup page
     Plug 'mhinz/vim-startify'
-
+    " VSCode Theme
     Plug 'tomasiser/vim-code-dark'
+    " Fuzzy finder
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 call plug#end()
