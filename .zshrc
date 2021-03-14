@@ -105,7 +105,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 
-export PATH=$PATH:/home/victor/.asdf/installs/elixir/1.10.4/.mix/escripts/:/usr/local/bin/nvim
+export PATH=$PATH:$HOME/.asdf/installs/elixir/1.10.4/.mix/escripts/:/usr/local/bin/nvim:$HOME/.local/bin
 export GOOGLE_APPLICATION_CREDENTIALS=$HOME/.gcp/key.json
 export DOCKER_ENV=dev
 
@@ -114,9 +114,15 @@ export DOCKER_ENV=dev
 
 # append completions to fpath
 fpath=(${ASDF_DIR}/completions $fpath)
+
 # initialise completions with ZSH's compinit
 autoload -Uz compinit
 compinit
 
 fpath+=${ZDOTDIR:-~}/.zsh_functions
+
+# FZF Exclude .gitignored files
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+
+# export KERL_CONFIGURE_OPTIONS="--disable-debug --disable-silent-rules --without-javac --enable-shared-zlib --enable-dynamic-ssl-lib --enable-hipe --enable-sctp --enable-smp-support --enable-threads --enable-kernel-poll --enable-wx --enable-darwin-64bit --with-ssl=$HOME/.openssl-1.0"
 

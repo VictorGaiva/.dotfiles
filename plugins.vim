@@ -11,7 +11,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Better Syntax Support
     Plug 'sheerun/vim-polyglot'
     " File Explorer
-    Plug 'scrooloose/NERDTree'
+    " Plug 'scrooloose/NERDTree'
     " Auto pairs for '(' '[' '{'
     Plug 'jiangmiao/auto-pairs'
     " Autocomplete
@@ -22,7 +22,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'elixir-lsp/coc-elixir', {'do': 'yarn install && yarn prepack'}
 
     " NERDTree
-    Plug 'preservim/nerdtree'
+    " Plug 'preservim/nerdtree'
     " Vim devicons
     Plug 'ryanoasis/vim-devicons'
     " Git Plugin
@@ -36,4 +36,5 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'tomasiser/vim-code-dark'
     " Fuzzy finder
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf.vim'
 call plug#end()
