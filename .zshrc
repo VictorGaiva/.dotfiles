@@ -105,8 +105,8 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 
-export PATH=$PATH:$HOME/.asdf/installs/elixir/1.10.4/.mix/escripts/:/usr/local/bin/nvim:$HOME/.local/bin
-export GOOGLE_APPLICATION_CREDENTIALS=$HOME/.gcp/key.json
+# export PATH=$PATH:$HOME/.asdf/installs/elixir/1.10.4/.mix/escripts/:/usr/local/bin/nvim:$HOME/.local/bin
+# export GOOGLE_APPLICATION_CREDENTIALS=$HOME/.gcp/key.json
 export DOCKER_ENV=dev
 
 # ASDF
