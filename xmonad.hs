@@ -12,8 +12,10 @@ import Data.Monoid
 import System.Exit
 import Graphics.X11.ExtraTypes.XF86
 import XMonad.Hooks.DynamicLog
+import XMonad.Hooks.EwmhDesktops
 
 import XMonad.Util.SpawnOnce
+import XMonad.Actions.SpawnOn
 
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
@@ -55,8 +57,8 @@ myWorkspaces    = ["1","2","3","4","5","6","7","8","9"]
 
 -- Border colors for unfocused and focused windows, respectively.
 --
-myNormalBorderColor  = "#dddddd"
-myFocusedBorderColor = "#ff0000"
+myNormalBorderColor  = "#777777"
+myFocusedBorderColor = "#dddddd"
 
 ------------------------------------------------------------------------
 -- Key bindings. Add, modify or remove key bindings here.
@@ -231,7 +233,7 @@ myManageHook = composeAll
 -- return (All True) if the default handler is to be run afterwards. To
 -- combine event hooks use mappend or mconcat from Data.Monoid.
 --
-myEventHook = mempty
+myEventHook = fullscreenEventHook
 
 ------------------------------------------------------------------------
 -- Status bars and logging
@@ -250,6 +252,7 @@ myLogHook = return ()
 --
 -- By default, do nothing.
 myStartupHook = do
+    spawnOnce "kwalletd5"
     spawnOnce "xrandr --output eDP1 --auto --pos 0x756 --output HDMI1 --auto --pos 1366x0 --primary"
     spawnOnce "nitrogen --restore"
     spawnOnce "picom -f"
