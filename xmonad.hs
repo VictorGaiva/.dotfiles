@@ -255,7 +255,7 @@ myLogHook = return ()
 myStartupHook = do
 --    spawnOnce "kwalletd5"
     spawnOnce "nm-applet"
---    spawnOnce "xrandr --output eDP1 --auto --output HDMI1 --auto --pos 1366x0 --primary"
+    spawnOnce "xrandr --output eDP1 --off --output HDMI1 --auto --pos 1366x0 --primary"
     spawnOnce "nitrogen --restore"
     spawnOnce "picom -f"
     spawnOnce "xset r rate 400 25"
