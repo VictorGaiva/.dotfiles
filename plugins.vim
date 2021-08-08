@@ -34,6 +34,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'mhinz/vim-startify'
     " VSCode Theme
     Plug 'tomasiser/vim-code-dark'
+    " jparise/vim-graphql
+    Plug 'jparise/vim-graphql'
     " Fuzzy finder
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'

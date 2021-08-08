@@ -4,10 +4,10 @@ font:
 # Inicia TMUX automaticamente ao iniciar
 shell:
   program: /bin/zsh
-  #  args:
-    #    - -l
-      #    - -c
-      #    - "tmux"
+  args:
+    - -l
+    - -c
+    - "tmux"
 
 
 # Tema de cores VSCode
@@ -38,4 +38,4 @@ colors:
     cyan:    '#29b8db'
     white:   '#e5e5e5'
 
-background_opacity: 0.9
+    # background_opacity: 0.9

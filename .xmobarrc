@@ -7,15 +7,16 @@ Config {
    , position =     Top
    , border =       BottomB
    , borderColor =  "#646464"
+   , alpha = 255
    -- layout
    , sepChar =  "%"   -- delineator between plugin names and straight text
    , alignSep = "}{"  -- separator between left-right alignment
-   , template = " %StdinReader% }{ %multicpu% | %coretemp% | %memory% | %date% "
+   , template = " %StdinReader% }{ %multicpu% | %coretemp% | %memory% | %date% | %default:Master%"
 
    -- general behavior
    , lowerOnStart =     True    -- send to bottom of window stack on start
    , hideOnStart =      False   -- start with window unmapped (hidden)
-   , allDesktops =      True    -- show on all desktops
+   , allDesktops =      False   -- show on all desktops
    , overrideRedirect = True    -- set the Override Redirect flag (Xlib)
    , pickBroadest =     False   -- choose widest display (multi-monitor)
    , persistent =       True    -- enable/disable hiding (True = disabled)
@@ -39,10 +40,13 @@ Config {
         -- StdinReader
         [ Run StdinReader
 
+        -- Volume
+        , Run Volume "default" "Master" [] 10
+
         -- cpu activity monitor
         , Run MultiCpu       [ "--template" , "Cpu: <total0>%|<total1>%"
-                             , "--Low"      , "50"         -- units: %
-                             , "--High"     , "85"         -- units: %
+                             , "--Low"      , "80"         -- units: %
+                             , "--High"     , "95"         -- units: %
                              , "--low"      , "darkgreen"
                              , "--normal"   , "darkorange"
                              , "--high"     , "darkred"
@@ -57,9 +61,9 @@ Config {
                              , "--high"     , "darkred"
                              ] 50
                           
-        -- memory usage monitor
+        -- memory usage monitor # Colors disabled since they are a bit distracting
         , Run Memory         [ "--template" ,"Mem: <usedratio>%"
-                             , "--Low"      , "20"        -- units: %
+                             , "--Low"      , "70"        -- units: %
                              , "--High"     , "90"        -- units: %
                              , "--low"      , "darkgreen"
                              , "--normal"   , "darkorange"
@@ -68,6 +72,6 @@ Config {
 
         -- time and date indicator 
         --   (%F = y-m-d date, %a = day of week, %T = h:m:s time)
-        , Run Date           "<fc=#ABABAB>%F (%a) %T</fc>" "date" 10
+        , Run Date           "<fc=#ABABAB>%F a) %T</fc>" "date" 10
         ]
    } 

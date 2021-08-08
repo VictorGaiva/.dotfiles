@@ -13,13 +13,13 @@ import System.Exit
 import Graphics.X11.ExtraTypes.XF86
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops
+import XMonad.Config.Desktop
 
 import XMonad.Util.SpawnOnce
 import XMonad.Actions.SpawnOn
 
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
-
 -- The preferred terminal program, which is used in a binding below and by
 -- certain contrib modules.
 --
@@ -35,7 +35,7 @@ myClickJustFocuses = False
 
 -- Width of the window border in pixels.
 --
-myBorderWidth   = 1
+myBorderWidth   = 0
 
 -- modMask lets you specify which modkey you want to use. The default
 -- is mod1Mask ("left alt").  You may also consider using mod3Mask
@@ -53,7 +53,7 @@ myModMask       = mod4Mask
 --
 -- > workspaces = ["web", "irc", "code" ] ++ map show [4..9]
 --
-myWorkspaces    = ["1","2","3","4","5","6","7","8","9"]
+myWorkspaces    = ["1:web","2:term","3:code","4:chat","5:music" ] ++ map show [6..9]
 
 -- Border colors for unfocused and focused windows, respectively.
 --
@@ -147,7 +147,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     --
     [((m .|. modm, k), windows $ f i)
         | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_9]
-        , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
+        , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
     ++
 
     --
@@ -222,7 +222,8 @@ myManageHook = composeAll
     [ className =? "MPlayer"        --> doFloat
     , className =? "Gimp"           --> doFloat
     , resource  =? "desktop_window" --> doIgnore
-    , resource  =? "kdesktop"       --> doIgnore ]
+    , resource  =? "kdesktop"       --> doIgnore
+    , manageSpawn ]
 
 ------------------------------------------------------------------------
 -- Event handling
@@ -252,12 +253,14 @@ myLogHook = return ()
 --
 -- By default, do nothing.
 myStartupHook = do
-    spawnOnce "kwalletd5"
-    spawnOnce "xrandr --output eDP1 --auto --pos 0x756 --output HDMI1 --auto --pos 1366x0 --primary"
+--    spawnOnce "kwalletd5"
+    spawnOnce "nm-applet"
+--    spawnOnce "xrandr --output eDP1 --auto --output HDMI1 --auto --pos 1366x0 --primary"
     spawnOnce "nitrogen --restore"
     spawnOnce "picom -f"
-    spawnOnce "nm-applet"
-    spawnOnce "xset r rate 200 30"
+    spawnOnce "xset r rate 400 25"
+    spawnOn "1:web" "google-chrome-stable"
+    spawnOn "2:term" "alacritty"
 
 ------------------------------------------------------------------------
 -- Command to launch the bar.
@@ -302,7 +305,7 @@ defaults = def {
         manageHook         = myManageHook,
         handleEventHook    = myEventHook,
         logHook            = myLogHook,
-        startupHook        = myStartupHook
+        startupHook        = startupHook desktopConfig <+> myStartupHook
     }
 
 -- | Finally, a copy of the default bindings in simple textual tabular format.
