@@ -13,7 +13,11 @@ import System.Exit
 import Graphics.X11.ExtraTypes.XF86
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops
+
 import XMonad.Config.Desktop
+import XMonad.Layout.PerWorkspace
+import XMonad.Layout.Tabbed
+
 
 import XMonad.Util.SpawnOnce
 import XMonad.Actions.SpawnOn
@@ -53,7 +57,7 @@ myModMask       = mod4Mask
 --
 -- > workspaces = ["web", "irc", "code" ] ++ map show [4..9]
 --
-myWorkspaces    = ["1:web","2:term","3:code","4:chat","5:music" ] ++ map show [6..9]
+myWorkspaces    = ["1:web","2:code","3:term","4:other" ] ++ map show [5..9]
 
 -- Border colors for unfocused and focused windows, respectively.
 --
@@ -189,7 +193,7 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
-myLayout = tiled ||| Mirror tiled ||| Full
+myLayout1 = tiled ||| Mirror tiled ||| Full
   where
      -- default tiling algorithm partitions the screen into two panes
      tiled   = Tall nmaster delta ratio
@@ -201,7 +205,32 @@ myLayout = tiled ||| Mirror tiled ||| Full
      ratio   = 1/2
 
      -- Percent of screen to increment by when resizing panes
-     delta   = 3/100
+     delta   = 2/100
+
+myLayout = onWorkspaces ["1:web","3:term"] l1 $
+            onWorkspaces ["2:code"] l2 $
+            l1
+        where
+            -- VSCode workspace
+            l2      = tabbed shrinkText tabTheme
+            --- The default tilling
+            l1      = tiled ||| Mirror tiled ||| Full
+            tiled   = Tall (1) (2/100) (1/2)
+tabTheme = def {
+              fontName              = "xft:Liberation Mono:size=9:bold:antialias=true"
+            , activeColor           = "black"
+            , activeBorderColor     = "darkgreen"
+            , activeTextColor       = "darkgreen"
+            , activeBorderWidth     = 1
+            , inactiveColor         = "black"
+            , inactiveBorderColor   = "black"
+            , inactiveTextColor     = "#646464"
+            , inactiveBorderWidth   = 0
+            , urgentColor           = "black"
+            , urgentBorderColor     = "darkred"
+            , urgentTextColor       = "red"
+            , urgentBorderWidth     = 1
+}
 
 ------------------------------------------------------------------------
 -- Window rules:
@@ -258,9 +287,9 @@ myStartupHook = do
     spawnOnce "xrandr --output eDP1 --off --output HDMI1 --auto --pos 1366x0 --primary"
     spawnOnce "nitrogen --restore"
     spawnOnce "picom -f"
-    spawnOnce "xset r rate 400 25"
-    spawnOn "1:web" "google-chrome-stable"
-    spawnOn "2:term" "alacritty"
+    spawnOnce "xset r rate 400 50"
+--    spawnOn "1:web" "google-chrome-stable"
+--    spawnOn "3:term" "alacritty"
 
 ------------------------------------------------------------------------
 -- Command to launch the bar.

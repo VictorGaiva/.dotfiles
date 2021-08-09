@@ -1,25 +1,26 @@
 Config { 
 
    -- appearance
-     font =         "xft:Bitstream Vera Sans Mono:size=9:bold:antialias=true"
-   , bgColor =      "black"
-   , fgColor =      "#646464"
-   , position =     Top
-   , border =       BottomB
-   , borderColor =  "#646464"
-   , alpha = 255
+   -- font =         "xft:Bitstream Vera Sans Mono:size=9:bold:antialias=true"
+     font           = "xft:Liberation Mono:size=9:bold:antialias=true"
+   , bgColor        = "black"
+   , fgColor        = "#646464"
+   , position       = Top
+   , border         = BottomB
+   , borderColor    = "#646464"
+   , alpha          = 255
    -- layout
-   , sepChar =  "%"   -- delineator between plugin names and straight text
-   , alignSep = "}{"  -- separator between left-right alignment
-   , template = " %StdinReader% }{ %multicpu% | %coretemp% | %memory% | %date% | %default:Master%"
+   , sepChar        = "%"   -- delineator between plugin names and straight text
+   , alignSep       = "}{"  -- separator between left-right alignment
+   , template       = " %StdinReader% }{ %multicpu% | %coretemp% | %memory% | %date% | %default:Master%"
 
    -- general behavior
-   , lowerOnStart =     True    -- send to bottom of window stack on start
-   , hideOnStart =      False   -- start with window unmapped (hidden)
-   , allDesktops =      False   -- show on all desktops
-   , overrideRedirect = True    -- set the Override Redirect flag (Xlib)
-   , pickBroadest =     False   -- choose widest display (multi-monitor)
-   , persistent =       True    -- enable/disable hiding (True = disabled)
+   , lowerOnStart       = True    -- send to bottom of window stack on start
+   , hideOnStart        = False   -- start with window unmapped (hidden)
+   , allDesktops        = False   -- show on all desktops
+   , overrideRedirect   = True    -- set the Override Redirect flag (Xlib)
+   , pickBroadest       = False   -- choose widest display (multi-monitor)
+   , persistent         = True    -- enable/disable hiding (True = disabled)
 
    -- plugins
    --   Numbers can be automatically colored according to their value. xmobar
