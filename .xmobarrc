@@ -45,7 +45,7 @@ Config {
         , Run Volume "default" "Master" [] 10
 
         -- cpu activity monitor
-        , Run MultiCpu       [ "--template" , "Cpu: <total0>%|<total1>%"
+        , Run MultiCpu       [ "--template" , "CPU <total0>%|<total1>%|<total2>%|<total3>%"
                              , "--Low"      , "80"         -- units: %
                              , "--High"     , "95"         -- units: %
                              , "--low"      , "darkgreen"
@@ -54,7 +54,7 @@ Config {
                              ] 10
 
         -- cpu core temperature monitor
-        , Run CoreTemp       [ "--template" , "Temp: <core0>°C|<core1>°C"
+        , Run CoreTemp       [ "--template" , "<core0>°C"
                              , "--Low"      , "70"        -- units: °C
                              , "--High"     , "80"        -- units: °C
                              , "--low"      , "darkgreen"
@@ -63,7 +63,7 @@ Config {
                              ] 50
                           
         -- memory usage monitor # Colors disabled since they are a bit distracting
-        , Run Memory         [ "--template" ,"Mem: <usedratio>%"
+        , Run Memory         [ "--template" ,"M <usedratio>%"
                              , "--Low"      , "70"        -- units: %
                              , "--High"     , "90"        -- units: %
                              , "--low"      , "darkgreen"
@@ -73,6 +73,6 @@ Config {
 
         -- time and date indicator 
         --   (%F = y-m-d date, %a = day of week, %T = h:m:s time)
-        , Run Date           "<fc=#ABABAB>%F a) %T</fc>" "date" 10
+        , Run Date           "<fc=#ABABAB>%T %d/%m/%Y</fc>" "date" 10
         ]
    } 
