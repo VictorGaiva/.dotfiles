@@ -74,7 +74,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) =
       ((0, xF86XK_AudioLowerVolume), spawn "pactl set-sink-volume @DEFAULT_SINK@ -2%"),
       ((0, xF86XK_AudioRaiseVolume), spawn "pactl set-sink-volume @DEFAULT_SINK@ +2%"),
       -- launch dmenu
-      ((modm, xK_p), spawn "dmenu_run"),
+      -- ((modm, xK_p), spawn "dmenu_run"),
+      -- launch rofi
+      ((modm, xK_p), spawn "rofi -show drun -config ~/.config/rofi/config.rasi"),
       -- close focused window
       ((modm .|. shiftMask, xK_c), kill),
       -- Rotate through the available layout algorithms
