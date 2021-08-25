@@ -166,15 +166,14 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) =
 ------------------------------------------------------------------------
 
 myLayout =
-  onWorkspaces ["1:web", "3:term"] l1 $
-    onWorkspaces ["2:code"] l2 $
-      l1
+  onWorkspaces ["1:web", "3:term"] l2 $ onWorkspaces ["2:code"] l2 l2
   where
     -- VSCode workspace
     l2 = tabbed shrinkText tabTheme
-    --- The default tilling
-    l1 = tiled ||| Mirror tiled ||| Full
-    tiled = Tall 1 (2 / 100) (1 / 2)
+
+--- The default tilling
+--- l1 = tiled ||| Mirror tiled ||| Full
+--- tiled = Tall 1 (2 / 100) (1 / 2)
 
 tabTheme =
   def
