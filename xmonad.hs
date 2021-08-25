@@ -179,16 +179,16 @@ myLayout =
 tabTheme =
   def
     { fontName = "xft:Liberation Mono:size=9:bold:antialias=true",
-      activeColor = "black",
-      activeBorderColor = "darkgreen",
-      activeTextColor = "darkgreen",
+      activeColor = "#545454",
+      activeBorderColor = "white",
+      activeTextColor = "white",
       activeBorderWidth = 1,
-      inactiveColor = "black",
-      inactiveBorderColor = "646464",
-      inactiveTextColor = "#646464",
+      inactiveColor = "#333333",
+      inactiveBorderColor = "#646464",
+      inactiveTextColor = "#ababab",
       inactiveBorderWidth = 1,
-      urgentColor = "black",
-      urgentBorderColor = "darkred",
+      urgentColor = "#333333",
+      urgentBorderColor = "red",
       urgentTextColor = "red",
       urgentBorderWidth = 1
     }

@@ -3,11 +3,11 @@ Config {
    -- appearance
    -- font =         "xft:Bitstream Vera Sans Mono:size=9:bold:antialias=true"
      font           = "xft:Liberation Mono:size=9:bold:antialias=true"
-   , bgColor        = "black"
-   , fgColor        = "#646464"
+   , bgColor        = "#333333"
+   , fgColor        = "#ababab"
    , position       = Top
-   , border         = BottomB
-   , borderColor    = "#646464"
+   -- , border         = BottomB
+   -- , borderColor    = "white"
    , alpha          = 255
    -- layout
    , sepChar        = "%"   -- delineator between plugin names and straight text
@@ -48,31 +48,31 @@ Config {
         , Run MultiCpu       [ "--template" , "CPU <total0>%|<total1>%|<total2>%|<total3>%"
                              , "--Low"      , "80"         -- units: %
                              , "--High"     , "95"         -- units: %
-                             , "--low"      , "darkgreen"
-                             , "--normal"   , "darkorange"
-                             , "--high"     , "darkred"
+                             , "--low"      , "green"
+                             , "--normal"   , "orange"
+                             , "--high"     , "red"
                              ] 10
 
         -- cpu core temperature monitor
         , Run CoreTemp       [ "--template" , "<core0>°C"
                              , "--Low"      , "70"        -- units: °C
                              , "--High"     , "80"        -- units: °C
-                             , "--low"      , "darkgreen"
-                             , "--normal"   , "darkorange"
-                             , "--high"     , "darkred"
+                             , "--low"      , "green"
+                             , "--normal"   , "orange"
+                             , "--high"     , "red"
                              ] 50
                           
         -- memory usage monitor # Colors disabled since they are a bit distracting
         , Run Memory         [ "--template" ,"M <usedratio>%"
                              , "--Low"      , "70"        -- units: %
                              , "--High"     , "90"        -- units: %
-                             , "--low"      , "darkgreen"
-                             , "--normal"   , "darkorange"
-                             , "--high"     , "darkred"
+                             , "--low"      , "green"
+                             , "--normal"   , "orange"
+                             , "--high"     , "red"
                              ] 10
 
         -- time and date indicator 
         --   (%F = y-m-d date, %a = day of week, %T = h:m:s time)
-        , Run Date           "<fc=#ABABAB>%T %d/%m/%Y</fc>" "date" 10
+        , Run Date           "<fc=#ababab>%T %d/%m/%Y</fc>" "date" 10
         ]
    } 
