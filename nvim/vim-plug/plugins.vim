@@ -8,38 +8,39 @@ endif
 
 call plug#begin('~/.config/nvim/autoload/plugged')
 
-    " Better Syntax Support
-    Plug 'sheerun/vim-polyglot'
+    " Startup page
+    Plug 'mhinz/vim-startify'
+
     " File Explorer
     " Plug 'scrooloose/NERDTree'
+    
     " Auto pairs for '(' '[' '{'
     Plug 'jiangmiao/auto-pairs'
-    " Autocomplete
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    " Elixir misc
-    Plug 'elixir-editors/vim-elixir'
-    " Autocomplete elixir
-    Plug 'elixir-lsp/coc-elixir', {'do': 'yarn install && yarn prepack'}
 
     " NERDTree
     " Plug 'preservim/nerdtree'
-    " Vim devicons
-    Plug 'ryanoasis/vim-devicons'
+
     " Git Plugin
     " Plug 'Xuyuanp/nerdtree-git-plugin'
-    " Airline
-    Plug 'vim-airline/vim-airline'
-    Plug 'vim-airline/vim-airline-themes'
-    " Startup page
-    Plug 'mhinz/vim-startify'
-    " VSCode Theme
-    Plug 'tomasiser/vim-code-dark'
-    " jparise/vim-graphql
-    Plug 'jparise/vim-graphql'
+
+    " Vim devicons
+    Plug 'ryanoasis/vim-devicons'
+    
     " Fuzzy finder
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
     " Key description
     Plug 'liuchengxu/vim-which-key'
+
+    "
+    Plug 'neovim/nvim-lspconfig'
+    
+    " Syntax
+    Plug 'Mofiqul/vscode.nvim'
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+    " Status line
+    Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
+
 
 call plug#end()

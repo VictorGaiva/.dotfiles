@@ -127,3 +127,7 @@ export PATH="$HOME/.local/bin:/home/victor/.local/share/gem/ruby/3.0.0/bin:$PATH
 # export KERL_CONFIGURE_OPTIONS="--disable-debug --disable-silent-rules --without-javac --enable-shared-zlib --enable-dynamic-ssl-lib --enable-hipe --enable-sctp --enable-smp-support --enable-threads --enable-kernel-poll --enable-wx --enable-darwin-64bit --with-ssl=$HOME/.openssl-1.0"
 export BROWSER="/usr/bin/google-chrome-stable"
 
+
+# Init zoxide
+eval "$(zoxide init zsh)"
+
