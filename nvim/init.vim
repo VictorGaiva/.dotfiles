@@ -11,6 +11,11 @@ colorscheme vscode
 
 " Fuzzy finder screen
 " let g:fzf_preview_window = ['left:40%', 'ctrl-/']
+"
+
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') |
+    \ execute 'NERDTree' argv()[0] | wincmd p | enew | execute 'cd '.argv()[0] | endif
 
 let g:startify_session_dir = '~/.config/nvim/session'
 setlocal formatprg=mix\ format\ -

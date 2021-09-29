@@ -7,21 +7,18 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.config/nvim/autoload/plugged')
-
     " Startup page
     Plug 'mhinz/vim-startify'
 
     " File Explorer
     " Plug 'scrooloose/NERDTree'
+    Plug 'preservim/nerdtree'
     
     " Auto pairs for '(' '[' '{'
     Plug 'jiangmiao/auto-pairs'
 
-    " NERDTree
-    " Plug 'preservim/nerdtree'
-
     " Git Plugin
-    " Plug 'Xuyuanp/nerdtree-git-plugin'
+    Plug 'Xuyuanp/nerdtree-git-plugin'
 
     " Vim devicons
     Plug 'ryanoasis/vim-devicons'
@@ -34,10 +31,10 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     "
     Plug 'neovim/nvim-lspconfig'
-    
+    Plug 'sheerun/vim-polyglot'
+
     " Syntax
     Plug 'Mofiqul/vscode.nvim'
-    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
     " Status line
     Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
