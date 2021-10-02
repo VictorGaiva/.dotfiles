@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/victor/.oh-my-zsh"
+export ZSH="$HOME/oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -123,7 +123,7 @@ fpath+=${ZDOTDIR:-~}/.zsh_functions
 
 # FZF Exclude .gitignored files
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
-export PATH="$HOME/.local/bin:/home/victor/.local/share/gem/ruby/3.0.0/bin:$PATH"
+export PATH="$HOME/.local/bin:$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH"
 # export KERL_CONFIGURE_OPTIONS="--disable-debug --disable-silent-rules --without-javac --enable-shared-zlib --enable-dynamic-ssl-lib --enable-hipe --enable-sctp --enable-smp-support --enable-threads --enable-kernel-poll --enable-wx --enable-darwin-64bit --with-ssl=$HOME/.openssl-1.0"
 export BROWSER="/usr/bin/google-chrome-stable"
 
