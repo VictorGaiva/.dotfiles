@@ -50,11 +50,7 @@ myModMask = mod4Mask
 -- workspace name. The number of workspaces is determined by the length
 -- of this list.
 --
--- A tagging example:
---
--- > workspaces = ["web", "irc", "code" ] ++ map show [4..9]
---
-myWorkspaces = ["1:web", "2:code", "3:term", "4:other"] ++ map show [5 .. 9]
+myWorkspaces = ["web", "code", "term", "comm"] ++ map show [5 .. 9]
 
 -- Border colors for unfocused and focused windows, respectively.
 --
@@ -73,6 +69,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) =
       ((0, xF86XK_AudioMute), spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle"),
       ((0, xF86XK_AudioLowerVolume), spawn "pactl set-sink-volume @DEFAULT_SINK@ -2%"),
       ((0, xF86XK_AudioRaiseVolume), spawn "pactl set-sink-volume @DEFAULT_SINK@ +2%"),
+      ((modm, xK_Up), spawn "pactl set-sink-volume @DEFAULT_SINK@ +2%"),
+      ((modm, xK_Down), spawn "pactl set-sink-volume @DEFAULT_SINK@ -2%"),
       -- launch dmenu
       -- ((modm, xK_p), spawn "dmenu_run"),
       -- launch rofi
@@ -142,14 +140,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) =
 ------------------------------------------------------------------------
 
 myLayout =
-  onWorkspaces ["1:web", "3:term"] l2 $ onWorkspaces ["2:code"] l2 l2
+  onWorkspaces ["web", "code", "term", "other"] l2 l2
   where
-    -- VSCode workspace
     l2 = tabbed shrinkText tabTheme
-
---- The default tilling
---- l1 = tiled ||| Mirror tiled ||| Full
---- tiled = Tall 1 (2 / 100) (1 / 2)
 
 tabTheme =
   def
@@ -221,14 +214,11 @@ myLogHook = return ()
 --
 -- By default, do nothing.
 myStartupHook = do
-  -- spawnOnce "nm-applet"
+  spawnOnce "gnome-keyring-daemon -s"
   -- spawnOnce "xrandr --output eDP-1 --off --output HDMI-1 --auto --primary"
   spawnOnce "nitrogen --restore"
-  spawnOnce "picom -f"
+  spawnOnce "picom --config $HOME/.dotfiles/picom.conf"
   spawnOnce "xset r rate 400 50"
-
---    spawnOn "1:web" "google-chrome-stable"
---    spawnOn "3:term" "alacritty"
 
 ------------------------------------------------------------------------
 -- Command to launch the bar.
