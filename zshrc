@@ -105,8 +105,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 
-# export PATH=$PATH:$HOME/.asdf/installs/elixir/1.10.4/.mix/escripts/:/usr/local/bin/nvim:$HOME/.local/bin
-# export GOOGLE_APPLICATION_CREDENTIALS=$HOME/.gcp/key.json
 export DOCKER_ENV=dev
 
 # ASDF
@@ -124,7 +122,6 @@ fpath+=${ZDOTDIR:-~}/.zsh_functions
 # FZF Exclude .gitignored files
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 export PATH="$HOME/.local/bin:$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH"
-# export KERL_CONFIGURE_OPTIONS="--disable-debug --disable-silent-rules --without-javac --enable-shared-zlib --enable-dynamic-ssl-lib --enable-hipe --enable-sctp --enable-smp-support --enable-threads --enable-kernel-poll --enable-wx --enable-darwin-64bit --with-ssl=$HOME/.openssl-1.0"
 export BROWSER="/usr/bin/google-chrome-stable"
 
 

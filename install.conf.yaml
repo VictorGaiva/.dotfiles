@@ -1,0 +1,31 @@
+- defaults:
+    link:
+      relink: true
+
+- clean:
+    ~/:
+      force: true
+    ~/.config:
+      recursive: true
+    ~/.xmonad:
+      recursive: true
+
+- link:
+    ~/.tmux.conf:
+    ~/.alacritty:
+    ~/.tool-versions:
+    ~/.xmobarrc:
+    ~/.zshrc:
+      force: true
+    ~/.xmonad/xmonad.hs:
+      path: xmonad.hs
+      create: true
+    ~/.config/nvim/init.vim:
+      path: nvim/init.vim
+      create: true
+    ~/.config/rofi/config/config.rasi:
+      path: config.rasi
+      create: true
+
+- shell:
+    - [git submodule update --init --recursive, Installing submodules]
