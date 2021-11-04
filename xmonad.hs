@@ -223,7 +223,7 @@ myLogHook = return ()
 myStartupHook = do
   -- spawnOnce "nm-applet"
   -- spawnOnce "xrandr --output eDP-1 --off --output HDMI-1 --auto --primary"
-  spawnOnce "nitrogen --restore"
+  spawnOnce "nitrogen ~/.dotfiles/wallpapers"
   spawnOnce "picom -f"
   spawnOnce "xset r rate 400 50"
 

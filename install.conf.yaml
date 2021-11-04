@@ -23,7 +23,7 @@
     ~/.config/nvim/init.vim:
       path: nvim/init.vim
       create: true
-    ~/.config/rofi/config/config.rasi:
+    ~/.config/rofi/config.rasi:
       path: config.rasi
       create: true
 
