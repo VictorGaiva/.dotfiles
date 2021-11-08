@@ -12,13 +12,15 @@
 
 - link:
     ~/.tmux.conf:
-    ~/.alacritty:
     ~/.tool-versions:
     ~/.xmobarrc:
     ~/.zshrc:
       force: true
     ~/.xmonad/xmonad.hs:
       path: xmonad.hs
+      create: true
+    ~/.config/alacritty/alacritty.yml:
+      path: alacritty.yml
       create: true
     ~/.config/nvim/init.vim:
       path: nvim/init.vim
