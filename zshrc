@@ -121,12 +121,13 @@ fpath+=${ZDOTDIR:-~}/.zsh_functions
 
 # FZF Exclude .gitignored files
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
-export PATH="$HOME/.local/bin:$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH"
+export PATH="$HOME/.local/bin:$HOME/.local/share/gem/ruby/3.0.0/bin::$HOME/.mix/escripts:$PATH"
 export BROWSER="/usr/bin/google-chrome-stable"
-
 
 # Init zoxide
 eval "$(zoxide init zsh)"
 
 
 eval "$(direnv hook zsh)"
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

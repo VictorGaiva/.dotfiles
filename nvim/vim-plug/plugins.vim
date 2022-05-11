@@ -26,8 +26,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Fuzzy finder
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
-    " Key description
-    Plug 'liuchengxu/vim-which-key'
 
     "
     Plug 'neovim/nvim-lspconfig'

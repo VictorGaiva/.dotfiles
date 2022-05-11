@@ -215,9 +215,8 @@ myLogHook = return ()
 -- By default, do nothing.
 myStartupHook = do
   spawnOnce "gnome-keyring-daemon -s"
-  -- spawnOnce "xrandr --output eDP-1 --off --output HDMI-1 --auto --primary"
   spawnOnce "nitrogen --restore ~/.dotfiles/wallpapers"
-  spawnOnce "picom --config $HOME/.dotfiles/picom.conf"
+  spawnOnce "picom --config ~/.dotfiles/picom.conf"
   spawnOnce "xset r rate 400 50"
 
 ------------------------------------------------------------------------
