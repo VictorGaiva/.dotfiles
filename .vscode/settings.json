@@ -1,0 +1,7 @@
+{
+  "search.exclude": {
+    ".elixir-ls": true,
+    "dotbot": true,
+    "elixir-ls": true
+  }
+}

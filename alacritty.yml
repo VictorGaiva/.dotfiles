@@ -1,13 +1,9 @@
 font:
-  size: 10
+  size: 14
 
 # Inicia TMUX automaticamente ao iniciar
 shell:
   program: /bin/zsh
-  #  args:
-  #    - -l
-  #    - -c
-  #    - "tmux"
 
 key_bindings:
   - { key: F11, action: ToggleFullscreen }

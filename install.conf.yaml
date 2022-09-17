@@ -5,8 +5,6 @@
 - clean:
     ~/.config/alacritty:
       recursive: true
-    ~/.config/i3:
-      recursive: true
     ~/.config/nvim:
       recursive: true
     ~/.config/rofi:
@@ -24,15 +22,13 @@
     ~/.config/alacritty/alacritty.yml:
       path: alacritty.yml
       create: true
-    ~/.config/nvim/init.vim:
-      path: nvim/init.vim
-      create: true
+    ~/.config/nvim/init.lua:
+      path: nvim/init.lua
+    ~/.config/nvim/lua:
+      path: nvim/lua
     ~/.config/rofi/config.rasi:
       path: config.rasi
       create: true
-    ~/.config/i3/config:
-      path: i3-config
-      create: true
-
+    
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
