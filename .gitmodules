@@ -2,3 +2,9 @@
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot
 	ignore = dirty
+[submodule "nvim-lspconfig"]
+	path = nvim-lspconfig
+	url = https://github.com/neovim/nvim-lspconfig
+[submodule "elixir-ls"]
+	path = elixir-ls
+	url = https://github.com/elixir-lsp/elixir-ls

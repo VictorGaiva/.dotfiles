@@ -3,22 +3,24 @@
       relink: true
 
 - clean:
-    ~/:
-      force: true
-    ~/.config:
+    ~/.config/alacritty:
       recursive: true
-    ~/.xmonad:
+    ~/.config/i3:
       recursive: true
+    ~/.config/nvim:
+      recursive: true
+    ~/.config/rofi:
+      recursive: true
+    ~/.tmux.conf:
+      recursive: false
+    ~/.tool-versions:
+      recursive: false
 
 - link:
     ~/.tmux.conf:
     ~/.tool-versions:
-    ~/.xmobarrc:
     ~/.zshrc:
       force: true
-    ~/.xmonad/xmonad.hs:
-      path: xmonad.hs
-      create: true
     ~/.config/alacritty/alacritty.yml:
       path: alacritty.yml
       create: true
@@ -27,6 +29,9 @@
       create: true
     ~/.config/rofi/config.rasi:
       path: config.rasi
+      create: true
+    ~/.config/i3/config:
+      path: i3-config
       create: true
 
 - shell:

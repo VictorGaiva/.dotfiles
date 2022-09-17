@@ -27,9 +27,11 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
 
-    "
+    " Key description
+    Plug 'folke/which-key.nvim'
+    
+    " Elixir LSP
     Plug 'neovim/nvim-lspconfig'
-    Plug 'sheerun/vim-polyglot'
 
     " Syntax
     Plug 'Mofiqul/vscode.nvim'

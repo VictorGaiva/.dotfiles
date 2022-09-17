@@ -70,7 +70,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git asdf)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -100,22 +100,7 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-
 export DOCKER_ENV=dev
-
-# ASDF
-. $HOME/.asdf/asdf.sh
-
-# append completions to fpath
-fpath=(${ASDF_DIR}/completions $fpath)
-
-# initialise completions with ZSH's compinit
-autoload -Uz compinit
-compinit
 
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
@@ -126,8 +111,6 @@ export BROWSER="/usr/bin/google-chrome-stable"
 
 # Init zoxide
 eval "$(zoxide init zsh)"
-
-
 eval "$(direnv hook zsh)"
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

@@ -1,9 +1,15 @@
+" set leader key
+let g:mapleader = "\<Space>"
+let g:maplocalleader = ','
+
 source ~/.dotfiles/nvim/vim-plug/plugins.vim
 source ~/.dotfiles/nvim/general/settings.vim
-source ~/.dotfiles/nvim/keys/mappings.vim
+source ~/.dotfiles/nvim/general/fzf.vim
 
 luafile ~/.dotfiles/nvim/lua/elixir.lua
 luafile ~/.dotfiles/nvim/lua/line.lua
+luafile ~/.dotfiles/nvim/lua/which-key.lua
+luafile ~/.dotfiles/nvim/lua/keymap.lua
 
 let g:vscode_style = "dark"
 colorscheme vscode

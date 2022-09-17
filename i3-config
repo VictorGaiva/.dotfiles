@@ -1,0 +1,82 @@
+bar {
+    output            LVDS1
+    status_command    i3status
+    position          top
+    mode              hide
+    workspace_buttons yes
+    tray_output       none
+    
+    font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+
+    colors {
+        background #333333
+        statusline #ababab
+
+        focused_workspace  #ffffff #285577
+        active_workspace   #ffffff #333333
+        inactive_workspace #888888 #222222
+        urgent_workspace   #ffffff #900000
+    }
+}
+set $mod Mod4
+
+for_window [class="MPlayer"] floating enable
+
+font xft:Liberation Mono:size=9:bold:antialias=true
+
+workspace_auto_back_and_forth yes
+
+# start a terminal
+bindsym $mod+Return exec i3-exec uxterm
+
+# kill focused window
+bindsym $mod+Q kill
+
+# start rofi
+bindsym $mod+Shift+P exec rofi -show drun -config ~/.config/rofi/config.rasi
+
+# switch to workspace
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+# move focused container to workspace
+bindsym $mod+Shift+exclam move workspace 1
+bindsym $mod+Shift+quotedbl move workspace 2
+bindsym $mod+Shift+sterling move workspace 3
+bindsym $mod+Shift+dollar move workspace 4
+bindsym $mod+Shift+percent move workspace 5
+bindsym $mod+Shift+asciicircum move workspace 6
+bindsym $mod+Shift+ampersand move workspace 7
+bindsym $mod+Shift+asterisk move workspace 8
+bindsym $mod+Shift+parenleft move workspace 9
+bindsym $mod+Shift+parenright move workspace 10
+
+# Music keys
+bindsym XF86AudioPlay exec mpc toggle
+bindsym XF86AudioStop exec mpc stop
+bindsym XF86AudioPrev exec mpc prev
+bindsym XF86AudioNext exec mpc next
+
+
+# reload the configuration file
+bindsym $mod+Shift+C reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+R restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+Q exit
+
+
+exec_always "gnome-keyring-daemon -s"
+exec_always "xrandr --output eDP-1 --off --output HDMI-1 --auto --primary -s 2048x1080"
+exec_always "nitrogen --restore ~/.dotfiles/wallpapers"
+# exec_always "picom --config $HOME/.dotfiles/picom.conf"
+exec_always "xset r rate 400 50"
+exec_always "xset mouse 2/1 4"

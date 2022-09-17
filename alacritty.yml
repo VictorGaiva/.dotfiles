@@ -9,7 +9,8 @@ shell:
   #    - -c
   #    - "tmux"
 
-
+key_bindings:
+  - { key: F11, action: ToggleFullscreen }
 # Tema de cores VSCode
 colors:
   # Default colors
