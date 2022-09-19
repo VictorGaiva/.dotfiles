@@ -57,70 +57,67 @@ end
 -- disable for these file types
 gl.short_line_list = { 'startify', 'nerdtree', 'term', 'fugitive', 'NvimTree' }
 
-gl.section.left[1] = {
-  ViModeIcon = {
-    separator = ' ',
-    separator_highlight = {colors.black, colors.bg_light},
-    highlight = {colors.white, colors.black},
-    provider = function() return "   " end,
-  }
-}
-
-gl.section.left[2] = {
-  CWD = {
-    separator = ' ',
-    separator_highlight = function()
-      return {colors.bg_light, condition.buffer_not_empty() and colors.bg_dim or colors.bg}
-    end,
-    highlight = {colors.white, colors.bg_light},
-    provider = function()
-      local dirname = vim.fn.fnamemodify(vim.fn.getcwd(), ':t')
-      return ' ' .. dirname .. ' '
-    end,
-  }
-}
-
-gl.section.left[3] = {
-  FileIcon = {
-    provider = 'FileIcon',
-    condition = condition.buffer_not_empty,
-    highlight = {colors.gray, colors.bg_dim},
-  }
-}
-
-gl.section.left[4] = {
-  FileName = {
-    provider = 'FileName',
-    condition = condition.buffer_not_empty,
-    highlight = {colors.gray, colors.bg_dim},
-    separator_highlight = {colors.bg_dim, colors.bg},
-  }
-}
-
-gl.section.left[5] = {
-  DiffAdd = {
-    icon = '  ',
-    provider = 'DiffAdd',
-    condition = condition.hide_in_width,
-    highlight = {colors.white, colors.bg},
-  }
-}
-
-gl.section.left[6] = {
-  DiffModified = {
-    icon = '  ',
-    provider = 'DiffModified',
-    condition = condition.hide_in_width,
-    highlight = {colors.gray, colors.bg},
-  }
-}
-
-gl.section.left[7] = {
-  DiffRemove = {
-    icon = '  ',
-    provider = 'DiffRemove',
-    condition = condition.hide_in_width,
-    highlight = {colors.gray, colors.bg},
+gl.section.left = {
+  {
+    ViModeIcon = {
+      separator = ' ',
+      separator_highlight = {colors.black, colors.bg_light},
+      highlight = {colors.white, colors.black},
+      provider = function() return "   " end,
+    }
+  },{
+    CWD = {
+      separator = ' ',
+      separator_highlight = function()
+        return {colors.bg_light, condition.buffer_not_empty() and colors.bg_dim or colors.bg}
+      end,
+      highlight = {colors.white, colors.bg_light},
+      provider = function()
+        local dirname = vim.fn.fnamemodify(vim.fn.getcwd(), ':t')
+        return ' ' .. dirname .. ' '
+      end,
+    }
+  },{
+    GitBranch = {
+      icon = ' ',
+      condition = condition.check_git_workspace,
+      highlight = {colors.teal, colors.bg},
+      provider = 'GitBranch',
+    }
+  },{
+    FileIcon = {
+      provider = 'FileIcon',
+      condition = condition.buffer_not_empty,
+      highlight = {colors.gray, colors.bg_dim},
+    }
+  },{
+    FileName = {
+      provider = 'FileName',
+      condition = condition.buffer_not_empty,
+      highlight = {colors.gray, colors.bg_dim},
+      separator_highlight = {colors.bg_dim, colors.bg},
+    }
+  },{
+    DiffAdd = {
+      icon = '  ',
+      provider = 'DiffAdd',
+      condition = condition.hide_in_width,
+      highlight = {colors.white, colors.bg},
+    }
+  },{
+    DiffModified = {
+      icon = '  ',
+      provider = 'DiffModified',
+      condition = condition.hide_in_width,
+      highlight = {colors.gray, colors.bg},
+    }
+  },{
+    DiffRemove = {
+      icon = '  ',
+      provider = 'DiffRemove',
+      condition = condition.hide_in_width,
+      highlight = {colors.gray, colors.bg},
+    }
   }
 }
 
@@ -131,15 +128,6 @@ gl.section.right[1] = {
       local buf = require('galaxyline.provider_buffer')
       return string.lower(buf.get_buffer_filetype())
     end,
-  }
-}
-
-gl.section.right[2] = {
-  GitBranch = {
-    icon = ' ',
-    condition = condition.check_git_workspace,
-    highlight = {colors.teal, colors.bg},
-    provider = 'GitBranch',
   }
 }
 

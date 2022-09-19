@@ -8,8 +8,8 @@ keymap('n', 'k', 'j', default_opts)
 -- Find files by name
 keymap('n', '<leader>P', ':Telescope find_files<CR>', default_opts)
 -- Find files by content
-keymap('n', '<leader>F', ':Telescope live_grep<CR>', default_opts)
-keymap('n', '<leader>h', ':Telescope help_tags<CR>', default_opts)
+-- keymap('n', '<leader>F', ':Telescope live_grep<CR>', default_opts)
+-- keymap('n', '<leader>h', ':Telescope help_tags<CR>', default_opts)
 -- Find files by from open buffers
 keymap('n', '<C-f>', ':Telescope buffers<CR>', default_opts)
 
@@ -34,6 +34,7 @@ keymap('n', '<C-S-TAB>', ':bprevious<CR>', default_opts)
 
 -- Bdelete
 keymap("n", "<leader>q", ":Bdelete<CR>", default_opts)
+keymap("n", "<leader>Q", ":Bdelete!<CR>", default_opts)
 
 -- See references
 keymap("n", "<F11>", ":lua vim.lsp.buf.references()<CR>", default_opts)
@@ -44,3 +45,6 @@ keymap("n", "<F12>", ":lua vim.lsp.buf.definition()<CR>", default_opts)
 -- Toggle NvimTree
 keymap("n", "<C-B>", ":NvimTreeToggle<CR>", default_opts)
 keymap("n", "<C-b>", ":NvimTreeFocus<CR>", default_opts)
+
+-- Better save
+keymap("n", "<leader>w", ":w<CR>", default_opts)
