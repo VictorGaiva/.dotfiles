@@ -1,25 +1,36 @@
 local keymap = vim.api.nvim_set_keymap
 local default_opts = { noremap = true, silent = true }
 local expr_opts = { noremap = true, expr = true, silent = true }
+local wk = require("which-key")
+
+
 -- Swtich up/down 
 keymap('n', 'j', 'k', default_opts)
 keymap('n', 'k', 'j', default_opts)
 
 -- Find files by name
-keymap('n', '<leader>P', ':Telescope find_files<CR>', default_opts)
--- Find files by content
--- keymap('n', '<leader>F', ':Telescope live_grep<CR>', default_opts)
--- keymap('n', '<leader>h', ':Telescope help_tags<CR>', default_opts)
--- Find files by from open buffers
-keymap('n', '<C-f>', ':Telescope buffers<CR>', default_opts)
+-- keymap('n', '<leader>P', ':Telescope find_files<CR>', default_opts)
+-- keymap('n', '<C-f>', ':Telescope buffers<CR>', default_opts)
 
+wk.register({
+  f = {
+    name = "Telescope", 
+    f = { "<cmd>Telescope find_files<cr>", "Find File" },
+    r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File", noremap=false },
+  },
+}, { prefix = "<leader>" })
 
--- Find LS symbols
-keymap('n', '<leader>f', ':Telescope lsp_document_symbols<CR>', default_opts)
--- List references to current symbol
-keymap('n', '<leader>r', ':Telescope lsp_references<CR>', default_opts)
--- Signature help
+-- keymap('n', '<leader>f', ':Telescope lsp_document_symbols<CR>', default_opts)
+-- keymap('n', '<leader>r', ':Telescope lsp_references<CR>', default_opts)
 -- keymap('n', '<leader>s', ':lua vim.lsp.buf.signature_help()<CR>', default_opts)
+wk.register({
+  l = {
+    name = "LSP",
+    f = { "<cmd>Telescope lsp_document_symbols<cr>", "Find Function" },
+    r = { "<cmd>Telescope lsp_references<cr>", "Find References" },
+    s = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "Signature Help" },
+  },
+}, { prefix = "<leader>" })
 
 
 -- Next buffer
@@ -48,3 +59,5 @@ keymap("n", "<C-b>", ":NvimTreeFocus<CR>", default_opts)
 
 -- Better save
 keymap("n", "<leader>w", ":w<CR>", default_opts)
+
+

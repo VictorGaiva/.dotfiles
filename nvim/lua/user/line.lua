@@ -59,13 +59,6 @@ gl.short_line_list = { 'startify', 'nerdtree', 'term', 'fugitive', 'NvimTree' }
 
 gl.section.left = {
   {
-    ViModeIcon = {
-      separator = ' ',
-      separator_highlight = {colors.black, colors.bg_light},
-      highlight = {colors.white, colors.black},
-      provider = function() return "   " end,
-    }
-  },{
     CWD = {
       separator = ' ',
       separator_highlight = function()
@@ -80,6 +73,7 @@ gl.section.left = {
   },{
     GitBranch = {
       icon = ' ',
+      separator = ' ',
       condition = condition.check_git_workspace,
       highlight = {colors.teal, colors.bg},
       provider = 'GitBranch',
