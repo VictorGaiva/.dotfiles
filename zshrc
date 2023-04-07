@@ -114,3 +114,4 @@ eval "$(zoxide init zsh)"
 eval "$(direnv hook zsh)"
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+[[ $commands[kubectl] ]] && source <(kubectl completion zsh)
