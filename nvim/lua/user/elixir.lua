@@ -5,7 +5,7 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 
 lspconfig.elixirls.setup({
-  cmd = {vim.fn.expand("~/.dotfiles/bin/elixir-ls/language_server.sh")},
+  cmd = {vim.fn.expand("~/.dotfiles/elixir-ls/release/language_server.sh")},
   capabilities = capabilities,
   root_dir = lspconfig.util.root_pattern('.git'),
   settings = {

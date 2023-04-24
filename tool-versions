@@ -1,6 +1,4 @@
-python 3.5.10
-elixir 1.13.4-otp-24
 erlang 25.1.2
-
-ruby 2.7.5
+elixir 1.14.3-otp-25
 nodejs 16.13.0
+rust 1.67.1
