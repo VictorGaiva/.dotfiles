@@ -13,7 +13,7 @@ require("user.completion")
 
 require("user.elixir")
 require("user.line")
-require("user.bufferline")
+-- require("user.bufferline")
 require("user.copilot")
 require("user.telescope")
 require("user.nvim-tree")

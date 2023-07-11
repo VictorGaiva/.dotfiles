@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="$HOME/oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -115,3 +115,9 @@ eval "$(direnv hook zsh)"
 export ELS_INSTALL_PREFIX="$HOME/dev/services/elixir-ls/release"
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
+
+export PATH="$PATH:$(go env GOBIN):$(go env GOPATH)/bin"
+
+export GOPATH="$(go env GOPATH)"
+alias kgcp="kubectl config use-context gcp-cluster-admin@gcp-cluster"
+alias kaws="kubectl config use-context aws-cluster-admin@aws-cluster"
